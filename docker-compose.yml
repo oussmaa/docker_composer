@@ -1,0 +1,18 @@
+version: '3'
+services:
+  service_configuration:
+    image: oussama020899/serviceconfiguration:latest
+    networks:
+      - microservices-network
+    ports:
+      - "3080:3080"
+
+  eureka-services:
+    image: oussama020899/eureka::latest
+    networks:
+      - microservices-network
+    ports:
+      - "9091:9091"
+networks:
+  microservices-network:
+    driver: bridge
